@@ -1,0 +1,28 @@
+{
+  "name": "aula-backend-tec",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/nathimartins590-sys/aula-backend-tec#readme",
+  "bugs": {
+    "url": "https://github.com/nathimartins590-sys/aula-backend-tec/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathimartins590-sys/aula-backend-tec.git"
+  },
+  "license": "ISC",
+  "author": "Nathalia",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.5",
+    "sequelize": "^6.37.8"
+  }
+}
