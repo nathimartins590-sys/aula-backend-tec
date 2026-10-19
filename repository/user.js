@@ -1,6 +1,7 @@
 import User from "../model/user.js"
 
 class RepositoryUser {
+
     async Buscar() {
         return User.findAll()
     }
@@ -9,19 +10,19 @@ class RepositoryUser {
         return User.findByPk(id)
     }
 
-    async BuscarEmail(id) {
-        return User.findOne({ where: {email} })
+    async BuscarEmail(email) {
+        return User.findOne({ where: { email } })
     }
 
     async Criar(nome, email, password) {
-        User.create({ nome, email, password })
+        await User.create({ nome, email, password })
     }
 
     async Alterar(id, nome, email, password) {
         const user = await User.findByPk(id)
-
+        
         if(!user) {
-            throw new Error("usuario não encontrado")
+            throw new Error("Usuário não encontrado")
         }
 
         user.nome = nome || user.nome
@@ -33,13 +34,14 @@ class RepositoryUser {
 
     async Deletar(id) {
         const user = await User.findByPk(id)
-
+        
         if(!user) {
-            throw new Error("usuario não encontrado")
+            throw new Error("Usuário não encontrado")
         }
 
-        await User.destroy()
+        await user.destroy()
     }
+
 }
 
 export default new RepositoryUser()
