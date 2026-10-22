@@ -62,7 +62,6 @@ class ControllerUser {
     }
 
     async Login(req, res) {
-        return   res.status(200).send({ token: 123 })
         try {
             const { email, password } = req.body
     

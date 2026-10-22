@@ -1,6 +1,6 @@
-import ControllerUser from '../controller/user.js'
-import express from 'express'
-import authMiddleware from '../middleware/auth.js'
+import express from "express"
+import ControllerUser from "../controller/user.js"
+import authMiddleware from "../middleware/auth.js"
 
 const router = express.Router()
 
@@ -9,6 +9,7 @@ router.get('/detalhe', authMiddleware, ControllerUser.Detalhe)
 router.post('/criar', ControllerUser.Criar)
 router.put('/alterar', authMiddleware, ControllerUser.Alterar)
 router.delete('/deletar', authMiddleware, ControllerUser.Deletar)
-router.post('/login', authMiddleware, ControllerUser.Login)
+
+router.post('/login', ControllerUser.Login)
 
 export default router

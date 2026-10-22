@@ -1,24 +1,18 @@
 import express from 'express'
 import database from './config/database.js'
 import routerUser from './router/user.js'
-import cors from 'cors'
 
 const app = express()
 app.use(express.json())
-app.use(cors())
 
 app.use('/api/v1/user', routerUser)
 
 database.db.sync({ force: true })
     .then(() => {
         app.listen(3000, () => {
-            console.log("bah ta funcionando 3000")
+            console.log("Bah ta rodando 3000")
         })
     })
     .catch((e) => {
         console.log(e)
     })
-
-app.listen(3000, () => {
-    console.log("bah ta funcionando 3000")
-})

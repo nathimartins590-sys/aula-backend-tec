@@ -14,18 +14,18 @@ class RepositoryUser {
         return User.findOne({ where: { email } })
     }
 
-    async Criar(nome, email, password) {
-        await User.create({ nome, email, password })
+    async Criar(name, email, password) {
+        await User.create({ name, email, password })
     }
 
-    async Alterar(id, nome, email, password) {
+    async Alterar(id, name, email, password) {
         const user = await User.findByPk(id)
         
         if(!user) {
             throw new Error("Usuário não encontrado")
         }
 
-        user.nome = nome || user.nome
+        user.name = name || user.name
         user.email = email || user.email
         user.password = password || user.password
 
