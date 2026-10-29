@@ -1,4 +1,5 @@
 import jwtDecode from 'jwt-decode'
+import { Navigate, Outlet } from 'react-router-dom'
 
 const PrivateRoute = () => {
     const token = localStorage.getItem('token')
@@ -10,7 +11,7 @@ const PrivateRoute = () => {
     const currentTime = Date.now() /1000;
 
     if(decode.exp > currentTime) {
-        return <OutLet />
+        return <Outlet />
     }
 
     return <Navigate to='/' />
